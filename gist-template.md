@@ -4,7 +4,17 @@ Regular expressions, also known as regex, are a sequence of characters that defi
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+Here we have a code snippet of a regular expression that is used to validate whether a string matches the format of an email address.
+    /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+
+    ^ - Matches the start of the input string
+    ([a-z0-9_.-]+) - Matches one or more characters that are lowercase letters, digits, underscore, hyphen or period, and captures them in a group
+    @ - Matches the '@' symbol
+    ([\da-z.-]+) - Matches one or more characters that are digits, lowercase letters, hyphen, or period, and captures them in a group
+    . - Matches a literal period (.)
+    ([a-z.]{2,6}) - Matches two to six characters that are lowercase letters or a literal period, and captures them in a group
+    $ - Matches the end of the input string    
+
 
 ## Table of Contents
 
@@ -37,10 +47,38 @@ Quantifiers are used to specify how many times a character or group should be ma
     {n,m}: matches the preceding character between n and m times
 
 ### OR Operator
+OR operator is used to combine two or more conditions or expressions, and it returns true if at least one of the conditions is true.
+    Here's how the OR operator works:
+
+    If both expressions are true, the OR operator returns true.
+    If only one expression is true, the OR operator returns true.
+    If both expressions are false, the OR operator returns false.
+
 
 ### Character Classes
+Character class is a set of characters that are enclosed in square brackets and used to match any one character from that set.
+Here are some common character classes and what they match:
+
+    [a-z]: matches any lowercase letter from a to z.
+    [A-Z]: matches any uppercase letter from A to Z.
+    [0-9]: matches any digit from 0 to 9.
+    [a-zA-Z]: matches any letter, whether uppercase or lowercase.
+    [\d]: matches any digit character.
+    [\D]: matches any non-digit character.
+    [\s]: matches any whitespace character, including spaces, tabs, and line breaks.
+    [\S]: matches any non-whitespace character.
+    [\w]: matches any word character, including letters, digits, and underscores.
+    [\W]: matches any non-word character.
+
 
 ### Flags
+Flags are optional parameters that can be added to the end of the expression to modify how the pattern is matched.
+    g (global): This flag causes the regular expression engine to find all matches in the input string, instead of stopping after the first match.
+    i (ignore case): This flag causes the regular expression to ignore the difference between uppercase and lowercase letters when matching.
+    m (multiline): This flag causes the "^" and "$" anchors to match the start and end of each line in a multi-line input string, instead of just the start and end of the entire input string.
+    s (dotall): This flag causes the "." metacharacter to match any character, including line breaks.
+    u (unicode): This flag enables support for Unicode characters in the regular expression.
+    y (sticky): This flag causes the regular expression to match only at the position in the input string indicated by the lastIndex property of the regular expression object.
 
 ### Grouping and Capturing
 Grouping is a feature in regular expressions that allows you to group multiple characters or patterns together and treat them as a single unit. Grouping is done by enclosing the characters or patterns in parentheses ( and ). Capturing is a feature in regular expressions that allows you to extract specific parts of a matched string. Capturing is done by enclosing the part of the regular expression you want to capture in parentheses ( and ).
@@ -70,3 +108,6 @@ Look-ahead and look-behind are advanced concepts in regular expressions that all
 Look-ahead assertion (?=pattern): This matches a group of characters that are followed by another specific pattern. It is useful when you want to match a pattern only if it is immediately followed by another specific pattern. For example, the regular expression "a(?=b)" matches the letter "a" only if it is immediately followed by the letter "b".
 
 Look-behind assertion (?<=pattern): This matches a group of characters that are preceded by another specific pattern. It is useful when you want to match a pattern only if it is immediately preceded by another specific pattern. For example, the regular expression "(?<=a)b" matches the letter "b" only if it is immediately preceded by the letter "a".
+
+### Author
+- [@tjb47-dev](https://github.com/tjb47-dev)
